@@ -10,15 +10,13 @@ class BrandaController extends BaseController
     {
         //
     }
-    public function home (){
+    public function Home(){
 
     }
     public function about(){
 
-    }
-    public function pesan(){
+    }public function pesan(){
         
     }
-        
-    
+
 }
