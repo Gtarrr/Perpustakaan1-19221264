@@ -10,7 +10,7 @@ class LoginController extends BaseController
     {
         //
     }
-    
+
     public function daftar(){
 
     }
@@ -22,4 +22,5 @@ class LoginController extends BaseController
     public function lupapassword(){
 
     }
+
 }
