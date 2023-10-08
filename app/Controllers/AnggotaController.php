@@ -11,6 +11,11 @@ class AnggotaController extends BaseController
     {
         //
     }
+    public function tampil()
+    {
+        return view('anggota/tampildata');
+    }
+
     public function from()
     {
         return view('anggota/form');
