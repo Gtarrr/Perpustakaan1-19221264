@@ -25,7 +25,7 @@ class TbPenerbit extends BaseController
         return $m->insert([
             'penerbit' => request()->getvar('penerbit'),
             'kota' => request()->getvar('kota')
-        ]);
+        ]);   
     }
 
 }
