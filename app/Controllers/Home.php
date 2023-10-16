@@ -11,6 +11,6 @@ class Home extends BaseController
 
     public function dashboard()
     {
-        return view('dashboard/utama');
+        return view('dashboard/perpustakaan');
     }
 }

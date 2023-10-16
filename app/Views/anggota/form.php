@@ -9,7 +9,7 @@
     <lebel>nama lengkap</lebel>
     <input type="text" name="nama_lengkap" value="<?= $data['nama_lengkap'] ?? '' ?>" />
     <br />
-    <lebel>nama lengkap</lebel>
+    <lebel>jenis kelamin</lebel>
     <input type="text" name="jenis_kelamin" value="<?= $data['jenis_kelamin'] ?? '' ?>" />
     <br />
     <lebel>alamat</lebel>
