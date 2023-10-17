@@ -10,7 +10,11 @@
     <input type="text" name="nama_lengkap" value="<?= $data['nama_lengkap'] ?? '' ?>" />
     <br />
     <lebel>jenis kelamin</lebel>
-    <input type="text" name="jenis_kelamin" value="<?= $data['jenis_kelamin'] ?? '' ?>" />
+    <input type="radio" name="jenis_kelamin" value="L" <?= ($data['jenis_kelamin'] ?? '') == 'L' ? 'checked' : '' ?> />laki-laki
+    <input type="radio" name="jenis_kelamin" value="P" <?= ($data['jenis_kelamin'] ?? '') == 'P' ? 'checked' : '' ?> />Perempuan
+    <br />
+    <lebel>alamat</lebel>
+    <input type="text" name="alamat" value="<?= $data['alamat'] ?? '' ?>" />
     <br />
     <lebel>alamat</lebel>
     <input type="text" name="alamat" value="<?= $data['alamat'] ?? '' ?>" />

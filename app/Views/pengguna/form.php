@@ -10,10 +10,11 @@
     <input type="text" name="nama_lengkap" value="<?= $data['nama_lengkap'] ?? '' ?>" />
     <br />
     <lebel>tingkat</lebel>
-    <input type="text" name="tingkat" value="<?= $data['tingkat'] ?? '' ?>" />
+    <select name='tingkat'>
+        <option value="" disabled selected>-Pilih Tingkat-</option>
+        <option value="ADM">ADM</option>
+        <option value="PUS">PUS</option>
+    </select>
     <br />
-    <lebel>alamat</lebel>
-    <input type="text" name="alamat" value="<?= $data['alamat'] ?? '' ?>" />
-    <br />
-    <button>simpan</button>
+    <button method="post" action="<?= base_url('pengguna') ?? '' ?>">simpan</button>
 </form>

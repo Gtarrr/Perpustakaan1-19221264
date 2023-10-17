@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PenggunaModel extends Model
+class KategoriModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_pengguna';
+    protected $table            = 'tb_kategori';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = false;
+    protected $protectFields    = true;
     protected $allowedFields    = ['*'];
 
     // Dates

@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($data_anggota as $baris) : ?>
+        <?php foreach ($data_buku as $baris) : ?>
             <tr>
                 <td><?= $baris['judul'] ?></td>
                 <td><?= $baris['edisi'] ?></td>

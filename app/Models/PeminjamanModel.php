@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PenggunaModel extends Model
+class PeminjamanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_pengguna';
+    protected $table            = 'tb_peminjaman';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

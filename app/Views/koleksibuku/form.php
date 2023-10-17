@@ -4,10 +4,13 @@
     <input type="text" name="tb_buku_id" value="<?= $data['tb_buku_id'] ?? '' ?>" />
     <br />
     <lebel>nomor_koleksi</lebel>
-    <input type="text" name="nomor_koleksi" value="<?= $data['nomor_koleksi'] ?? '' ?>" />
+    <input type="number" name="nomor_koleksi" value="<?= $data['nomor_koleksi'] ?? '' ?>" />
     <br />
     <lebel>status_koleksi</lebel>
-    <input type="text" name="status_koleksi" value="<?= $data['status_koleksi'] ?? '' ?>" />
+    <input type="radio" name="status_koleksi" value="A<?= $data['status_koleksi'] ?? '' ?>" />A
+    <input type="radio" name="status_koleksi" value="P<?= $data['status_koleksi'] ?? '' ?>" />P
+    <input type="radio" name="status_koleksi" value="H<?= $data['status_koleksi'] ?? '' ?>" />H
+    <input type="radio" name="status_koleksi" value="R<?= $data['status_koleksi'] ?? '' ?>" />R
     <br />
     <button>simpan</button>
 </form>

@@ -1,12 +1,12 @@
-CREATE DATABASE perpustakaan_19221264;
-USE perpustakaan_19221264;
+ CREATE DATABASE perpustakaan_19221290;
+USE perpustakaan_19221290;
 
 CREATE TABLE tb_anggota(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 email VARCHAR(255) NOT NULL,
 katasandi VARCHAR(64),
-nama_lengkap VARCHAR(255) NOT NULL,
-jenis_kelamin ENUM("L","P"),
+nama_lengkap VARCHAR(80) NOT NULL, 
+jeniskelamin ENUM('L','P') DEFAULT 'L',
 alamat VARCHAR(255),
 UNIQUE(email)
 )ENGINE=INNODB;
@@ -15,7 +15,7 @@ CREATE TABLE tb_pengguna(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 email VARCHAR(255) NOT NULL,
 nama_lengkap VARCHAR(255) NOT NULL,
-tingkat ENUM("ADM", "PUS") DEFAULT "PUS",
+tingkat ENUM('ADM','PUS') DEFAULT 'PUS',
 katasandi VARCHAR(64),
 UNIQUE(email)
 )ENGINE=INNODB;
@@ -23,14 +23,14 @@ UNIQUE(email)
 CREATE TABLE tb_kategori(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 kategori VARCHAR(255) NOT NULL,
-kode_ddc VARCHAR(10),
-UNIQUE(kode_ddc)
+kode_dcc VARCHAR(10),
+UNIQUE(kode_dcc)
 )ENGINE=INNODB;
 
 CREATE TABLE tb_penerbit(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-penerbit VARCHAR(50) NOT NULL,
-kota VARCHAR(50)
+penerbit VARCHAR (50)NOT NULL,
+kota VARCHAR (50)
 )ENGINE=INNODB;
 
 CREATE TABLE tb_buku(
@@ -43,20 +43,20 @@ tb_kategori_id INT UNSIGNED,
 tb_penerbit_id INT UNSIGNED,
 isbn VARCHAR(20),
 penulis VARCHAR(100),
-FOREIGN KEY(tb_kategori_id) REFERENCES tb_kategori(id) ON UPDATE CASCADE,
-FOREIGN KEY(tb_penerbit_id) REFERENCES tb_penerbit(id) ON UPDATE CASCADE
+FOREIGN KEY(tb_kategori_id)REFERENCES tb_kategori(id) ON UPDATE CASCADE,
+FOREIGN KEY(tb_penerbit_id)REFERENCES tb_penerbit(id) ON UPDATE CASCADE
 )ENGINE=INNODB;
 
 CREATE TABLE tb_koleksibuku(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 tb_buku_id INT UNSIGNED,
 nomor_koleksi INT,
-status_koleksi ENUM("A","P","H","R") DEFAULT "A",
-FOREIGN KEY(tb_buku_id) REFERENCES tb_buku(id)
-ON DELETE CASCADE ON UPDATE CASCADE
+status_koleksi ENUM('A','P','H','R') DEFAULT 'A',
+FOREIGN KEY (tb_buku_id)REFERENCES tb_buku(id)
+	ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=INNODB;
 
-CREATE TABLE tb_peminjaman(
+CREATE TABLE tb_peminjamana(
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 tgl_peminjaman DATETIME NOT NULL,
 tgl_harus_kembali DATETIME NOT NULL,
@@ -66,8 +66,9 @@ tb_pengguna_id_pengembalian INT UNSIGNED,
 tb_anggota_id INT UNSIGNED,
 tb_koleksibuku_id INT UNSIGNED,
 denda DOUBLE,
-FOREIGN KEY(tb_anggota_id) REFERENCES tb_anggota(id) ON UPDATE CASCADE,
-FOREIGN KEY(tb_pengguna_id_peminjaman) REFERENCES tb_pengguna(id) ON UPDATE CASCADE,
-FOREIGN KEY(tb_pengguna_id_pengembalian) REFERENCES tb_pengguna(id) ON UPDATE CASCADE,
-FOREIGN KEY(tb_koleksibuku_id) REFERENCES tb_koleksibuku(id) ON UPDATE CASCADE
-)ENGINE=INNODB;
+
+FOREIGN KEY(tb_anggota_id)REFERENCES tb_anggota(id) ON UPDATE CASCADE,
+FOREIGN KEY(tb_pengguna_id_peminjaman)REFERENCES tb_pengguna(id) ON UPDATE CASCADE,
+FOREIGN KEY(tb_pengguna_id_pengembalian)REFERENCES tb_pengguna(id) ON UPDATE CASCADE,
+FOREIGN KEY(tb_koleksibuku_id)REFERENCES tb_koleksibuku(id) ON UPDATE CASCADE
+)ENGINE=INNODB; 
