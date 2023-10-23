@@ -6,6 +6,10 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('welcome_message');
+        return "selamat datang";
+    }
+    
+    public function dashboard(){
+        return view('dashboard/utama');
     }
 }
