@@ -11,6 +11,8 @@ class Home extends BaseController
 
     public function dashboard()
     {
-        return view('dashboard/perpustakaan');
+        return view('dashboard/perpustakaan', [
+            'pengguna' => session()->get('pengguna')
+        ]);
     }
 }

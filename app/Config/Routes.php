@@ -37,3 +37,7 @@ $routes->post('buku/hapus', 'TbBukuController::delete');
 $routes->get('peminjaman', 'TbBukuController::show');
 $routes->get('peminjaman/form', 'TbBukuController::form');
 $routes->post('peminjaman/simpan', 'TbBukuController::create');
+
+$routes->get('login', 'LoginController::form');
+$routes->post('login', 'LoginController::login');
+$routes->get('login', 'LoginController::logout');
