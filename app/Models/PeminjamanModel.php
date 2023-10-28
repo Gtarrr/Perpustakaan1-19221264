@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class PeminjamanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_peminjamen';
+    protected $table            = 'tb_peminjaman';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = ['*'];
 
     // Dates
