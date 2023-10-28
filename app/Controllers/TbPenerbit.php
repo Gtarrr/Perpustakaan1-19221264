@@ -41,7 +41,7 @@ class TbPenerbit extends BaseController
     {
         $model = new PenerbitModel();
 
-        return view('penerbit/table', [
+        return view('penerbit/tabel', [
             'data_penerbit' => $model->findAll()
 
         ]);

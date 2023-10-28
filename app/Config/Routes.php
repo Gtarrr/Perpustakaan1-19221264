@@ -7,8 +7,11 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::dashboard');
 
-$routes->get('/penerbit','Tbpenerbit::show');
+$routes->get('/penerbit','TbPenerbit::show');
 
-$routes->get('/penerbit/form','Tbpenerbit ::form');
+$routes->get('/penerbit/form','TbPenerbit ::form');
+
+$routes->get('/penerbit/edit','TbPenerbit ::edit');
 
 $routes->post('/penerbit/simpan','Tbpenerbit::create');
+

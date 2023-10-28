@@ -6,7 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return "selamat datang";
+        return "KHOIRUL FADLI RITONGA SIAP SIAP ATM MU DIBEKUKAN";
     }
     
     public function dashboard(){
