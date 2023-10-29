@@ -19,8 +19,30 @@ class AnggotaController extends BaseController
 
     private function cek_validasi()
     {
-        $rules = [];
-        return Services::validation();
+        $rules = [
+            'email' => 'required|valid_email',
+            'katasandi' => 'required|min_length[6]',
+            'nama_lengkap' => 'required|min_length[5]',
+        ];
+        $msg = [
+            'email' => [
+                'required' => 'Email harus diisikan',
+                'valid_email' => 'Email yang anda masukkan formatnya salah'
+            ],
+            'katasandi' => [
+                'required' => 'Kata sandi tidak boleh kosong',
+                'min_length' => 'Minimal katasandi 6 karakter'
+            ],
+            'nama_lengkap' => [
+                'required' => 'nama_lengkap tidak boleh kosong',
+                'min_length' => 'Minimal katasandi 5 karakter'
+            ]
+        ];
+
+        return Services::validation()
+            ->setRules($rules, $msg)
+            ->withRequest(request())
+            ->run();
     }
 
     public function create()
@@ -38,6 +60,17 @@ class AnggotaController extends BaseController
         // return;
 
         $id = (int) request()->getPost('id');
+        if ($this->cek_validasi() == false) {
+            session()->setFlashdata("xyz", Services::validation());
+
+            if ($id > 0) {
+                return redirect()->to(base_url('anggota/edit/' . $id));
+            } else {
+                return redirect()->to(base_url('anggota/form'))
+                    ->with('data', $data);
+            }
+        }
+
         if ($id > 0) {
             $r = $model->update($id, $data);
         } else {
@@ -78,14 +111,15 @@ class AnggotaController extends BaseController
         $model = new AnggotaModel();
         $data = $model->where('id', $id)->first();
         return view('anggota/form', [
-            'data' => $data
+            'data' => $data,
+            'validation' => session('xyz')
         ]);
     }
 
     private function terimaFile($id)
     {
         $f = request()->getFile('foto');
-        if ($f->isfile()) {
+        if ($f->isFile()) {
             $target = WRITEPATH . '/uploads/';
             $f->move($target, $id . '.png');
         }
@@ -93,6 +127,9 @@ class AnggotaController extends BaseController
 
     public function foto($id)
     {
-        $f = file_get_contents(WRITEPATH . '/uploads/');
+        $f = file_get_contents(WRITEPATH . '/uploads/' . $id . '.png');
+        return response()
+            ->setHeader('Content-type', 'image/png')
+            ->setBody($f);
     }
 }

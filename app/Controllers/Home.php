@@ -6,13 +6,14 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return "Selamat Datang";
+        return "Selamat datang";
+        return view('dashboard/pustakawan', [
+            'pengguna' => session()->get('pengguna')
+        ]);
     }
 
     public function dashboard()
     {
-        return view('dashboard/perpustakaan', [
-            'pengguna' => session()->get('pengguna')
-        ]);
+        return view('dashboard/perpustakaan.php');
     }
 }

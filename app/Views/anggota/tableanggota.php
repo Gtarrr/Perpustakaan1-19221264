@@ -17,6 +17,9 @@
                 <td><?= $baris['nama_lengkap'] ?></td>
                 <td><?= $baris['jenis_kelamin'] ?></td>
                 <td><?= $baris['alamat'] ?></td>
+                <td>
+                    <img src="<?= base_url('anggota/foto/' . $baris['id'] . '.png') ?>" style="width:100px" />
+                </td>
                 <td><a href="<?= base_url('anggota/edit/') . $baris['id'] ?>">Edit</a></td>
                 <td>
                     <form onsubmit="return confirm('apakah yakin ingin hapus data anggota?')" method="post" action="<?= base_url('anggota/hapus') ?>">

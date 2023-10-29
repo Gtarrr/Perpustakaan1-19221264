@@ -24,6 +24,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'sudahlogin'    => LoginFilter::class
     ];
 
     /**
@@ -70,12 +71,6 @@ class Filters extends BaseConfig
         'sudahlogin' => [
             'before' => [
                 '/',
-                'peminjaman',
-                'buku',
-                'penerbit',
-                'koleksibuku',
-                'pengguna',
-                'kategori',
                 'anggota',
                 'anggota/*'
             ]

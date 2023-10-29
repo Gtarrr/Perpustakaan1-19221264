@@ -6,13 +6,14 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::dashboard');
+$routes->get('/', 'Home::index');
 
 $routes->get('anggota', 'AnggotaController::show');
 $routes->get('anggota/form', 'AnggotaController::form');
 $routes->post('anggota/simpan', 'AnggotaController::create');
 $routes->get('anggota/edit/(:num)', 'AnggotaController::edit/$1');
 $routes->post('anggota/hapus', 'AnggotaController::delete');
+$routes->get('/anggota/foto/(:num).png', 'AnggotaController::foto/$1');
 
 
 $routes->get('pengguna', 'Penggunacontroller::show');
@@ -38,6 +39,6 @@ $routes->get('peminjaman', 'TbBukuController::show');
 $routes->get('peminjaman/form', 'TbBukuController::form');
 $routes->post('peminjaman/simpan', 'TbBukuController::create');
 
-$routes->get('login', 'LoginController::form');
-$routes->post('login', 'LoginController::login');
-$routes->get('login', 'LoginController::logout');
+$routes->get('/login', 'LoginController::login');
+$routes->post('/login', 'LoginController::ceklogin');
+$routes->get('/logout', 'LoginController::logout');

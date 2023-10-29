@@ -27,7 +27,7 @@ class LoginFilter implements FilterInterface
     {
         $p = session()->get('pengguna');
         if ($p == null) {
-            return redirect()->to(base_url('login'));
+            return redirect()->to(base_url('login/login.php'));
         }
     }
 

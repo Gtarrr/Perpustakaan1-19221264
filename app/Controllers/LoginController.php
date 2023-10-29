@@ -7,9 +7,9 @@ use App\Models\PenggunaModel;
 
 class LoginController extends BaseController
 {
-    public function index()
+    public function form()
     {
-        //
+        return view('login/login.php');
     }
 
     public function login()
@@ -32,7 +32,7 @@ class LoginController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(base_url('/'));
+        return redirect()->to(base_url('login/login.php'));
     }
 
     public function lupapassword()
