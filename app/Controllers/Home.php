@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers;{
+}
 
 class Home extends BaseController
 {
@@ -11,5 +12,24 @@ class Home extends BaseController
     
     public function dashboard(){
         return view('dashboard/utama');
+        return "selamat datang";
+    }
+
+    public function dashboard(){
+        return view('dashboard/utama'); 
+
+        return "Selamat Datang";
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard/perpustakaan');
+      
+        return "selamat Datang"; 
+
+    }
+
+    public function dashboard(){
+         return view('dashboard/utama');
     }
 }
