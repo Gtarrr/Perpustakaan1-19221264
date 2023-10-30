@@ -12,7 +12,7 @@ class LoginController extends BaseController
         return view('login/login.php');
     }
 
-    public function login()
+    public function ceklogin()
     {
         $e = request()->getPost('email');
         $k = request()->getPost('katasandi');
@@ -32,7 +32,7 @@ class LoginController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to(base_url('login/login.php'));
+        return redirect()->to(base_url('login'));
     }
 
     public function lupapassword()

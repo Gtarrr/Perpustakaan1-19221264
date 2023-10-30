@@ -39,6 +39,6 @@ $routes->get('peminjaman', 'TbBukuController::show');
 $routes->get('peminjaman/form', 'TbBukuController::form');
 $routes->post('peminjaman/simpan', 'TbBukuController::create');
 
-$routes->get('/login', 'LoginController::login');
+$routes->get('/login', 'LoginController::form');
 $routes->post('/login', 'LoginController::ceklogin');
 $routes->get('/logout', 'LoginController::logout');
