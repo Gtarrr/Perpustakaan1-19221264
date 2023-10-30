@@ -12,6 +12,7 @@ class PeminjamanModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
+    
     protected $protectFields    = false;
     protected $allowedFields    = ['*'];
 
