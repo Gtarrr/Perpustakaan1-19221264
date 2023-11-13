@@ -38,7 +38,7 @@ class TbPeminjaman extends BaseController
         } else {
             $r = $model->insert($data);
         }
-        if ($r != false){
+        if ($r != false) {
             return redirect()->to(base_url('peminjaman'));
         }
     }
@@ -49,11 +49,12 @@ class TbPeminjaman extends BaseController
 
         return view('peminjaman/table.php', [
             'data_peminjaman' => $model->findAll()
-       
+
         ]);
     }
 
-    public function form(){
+    public function form()
+    {
         return view('peminjaman/form.php');
     }
 
@@ -68,10 +69,9 @@ class TbPeminjaman extends BaseController
     public function edit($id)
     {
         $model = new PeminjamanModel();
-        $data = $model->where('id',$id)->first();
-        return view('peminjaman/form',[
+        $data = $model->where('id', $id)->first();
+        return view('peminjaman/form', [
             'data' => $data
         ]);
     }
 }
-  
